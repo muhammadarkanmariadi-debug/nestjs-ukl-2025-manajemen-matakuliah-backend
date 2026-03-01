@@ -1,98 +1,316 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<div align="center">
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# 🎓 Academic Management System — Backend API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+**REST API untuk sistem manajemen akademik — dosen, mahasiswa, jadwal, matakuliah, dan analisis dalam satu platform.**
 
-## Description
+<br/>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<table>
+  <tr>
+    <td align="center" colspan="5">
+      <strong>🛠️ Tech Stack</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://skillicons.dev/icons?i=nestjs" width="48" height="48" alt="NestJS"/><br/>
+      <sub><b>NestJS</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://skillicons.dev/icons?i=ts" width="48" height="48" alt="TypeScript"/><br/>
+      <sub><b>TypeScript</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://skillicons.dev/icons?i=prisma" width="48" height="48" alt="Prisma"/><br/>
+      <sub><b>Prisma ORM</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://skillicons.dev/icons?i=mysql" width="48" height="48" alt="MySQL"/><br/>
+      <sub><b>MySQL / MariaDB</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://skillicons.dev/icons?i=jest" width="48" height="48" alt="Jest"/><br/>
+      <sub><b>Jest</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="5">
+      <img src="https://img.shields.io/badge/Auth-JWT-black?style=flat-square&logo=jsonwebtokens&logoColor=white"/>
+      &nbsp;
+      <img src="https://img.shields.io/badge/ORM-Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white"/>
+      &nbsp;
+      <img src="https://img.shields.io/badge/API-REST-blue?style=flat-square"/>
+      &nbsp;
+      <img src="https://img.shields.io/badge/Node.js-20.x-339933?style=flat-square&logo=node.js&logoColor=white"/>
+    </td>
+  </tr>
+</table>
 
-## Project setup
+<br/>
 
-```bash
-$ npm install
+[![NestJS](https://img.shields.io/badge/NestJS-10.x-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com)
+[![Prisma](https://img.shields.io/badge/Prisma-5.x-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://prisma.io)
+[![MariaDB](https://img.shields.io/badge/MariaDB-10.x-003545?style=for-the-badge&logo=mariadb&logoColor=white)](https://mariadb.org)
+[![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io)
+
+</div>
+
+---
+
+## 📁 Struktur Proyek
+
+```
+src/
+├── analisis/           # Modul analisis & statistik akademik
+├── auth/               # Autentikasi & otorisasi (JWT)
+├── dosen/              # Manajemen data dosen
+├── jadwal/             # Manajemen jadwal perkuliahan
+├── mahasiswa/          # Manajemen data mahasiswa
+├── matakuliah/         # Manajemen matakuliah
+├── user/               # Manajemen user & role
+└── app.controller.spec.ts
+prisma/
+├── schema.prisma       # Definisi skema database
+└── migrations/         # Riwayat migrasi database
 ```
 
-## Compile and run the project
+---
+
+## ✨ Fitur
+
+| Modul | Deskripsi |
+|-------|-----------|
+| 🔐 **Auth** | Login, register, refresh token via JWT |
+| 👨‍🏫 **Dosen** | CRUD data dosen & penugasan mengajar |
+| 🎓 **Mahasiswa** | CRUD data mahasiswa & informasi akademik |
+| 📚 **Matakuliah** | Manajemen matakuliah & SKS |
+| 📅 **Jadwal** | Penjadwalan kelas & perkuliahan |
+| 📊 **Analisis** | Statistik & laporan akademik |
+| 👥 **User** | Manajemen akun & hak akses |
+
+---
+
+## 🚀 Cara Menjalankan
+
+### Prasyarat
+
+Pastikan sudah terinstall:
+- **Node.js** >= 20.x
+- **npm** / **yarn** / **pnpm**
+- **MySQL** atau **MariaDB** yang berjalan
+
+### 1. Clone & Install
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone <repository-url>
+cd <project-folder>
+npm install
 ```
 
-## Run tests
+### 2. Konfigurasi Environment
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+cp .env.example .env
 ```
 
-## Deployment
+Isi file `.env`:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+```env
+# Database
+DATABASE_URL="mysql://USER:PASSWORD@localhost:3306/nama_database"
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+# JWT
+JWT_SECRET="your-super-secret-key"
+JWT_EXPIRES_IN="7d"
+
+# App
+PORT=3000
+NODE_ENV=development
+```
+
+### 3. Setup Database dengan Prisma
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Jalankan migrasi database
+npx prisma migrate dev
+
+# (Opsional) Isi data awal
+npx prisma db seed
+
+# Buka Prisma Studio untuk lihat data
+npx prisma studio
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 4. Jalankan Aplikasi
 
-## Resources
+```bash
+# Development
+npm run start:dev
 
-Check out a few resources that may come in handy when working with NestJS:
+# Production
+npm run build
+npm run start:prod
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+API akan berjalan di `http://localhost:3000`
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 🔐 Autentikasi
 
-## Stay in touch
+API menggunakan **JWT (JSON Web Token)**. Sertakan token di setiap request yang membutuhkan autentikasi:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```http
+Authorization: Bearer <your_jwt_token>
+```
 
-## License
+### Endpoint Auth
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```http
+POST /auth/login      # Login & dapatkan token
+POST /auth/register   # Registrasi user baru
+POST /auth/refresh    # Refresh access token
+POST /auth/logout     # Logout
+```
+
+---
+
+## 📡 API Endpoints
+
+```http
+# Auth
+POST    /auth/login
+POST    /auth/register
+
+# Dosen
+GET     /dosen
+POST    /dosen
+GET     /dosen/:id
+PATCH   /dosen/:id
+DELETE  /dosen/:id
+
+# Mahasiswa
+GET     /mahasiswa
+POST    /mahasiswa
+GET     /mahasiswa/:id
+PATCH   /mahasiswa/:id
+DELETE  /mahasiswa/:id
+
+# Matakuliah
+GET     /matakuliah
+POST    /matakuliah
+GET     /matakuliah/:id
+PATCH   /matakuliah/:id
+DELETE  /matakuliah/:id
+
+# Jadwal
+GET     /jadwal
+POST    /jadwal
+GET     /jadwal/:id
+PATCH   /jadwal/:id
+DELETE  /jadwal/:id
+
+# Analisis
+GET     /analisis/statistik
+GET     /analisis/laporan
+
+# User
+GET     /user
+GET     /user/:id
+PATCH   /user/:id
+DELETE  /user/:id
+```
+
+---
+
+## 🗄️ Prisma — Database
+
+### Perintah Umum
+
+```bash
+# Buat migrasi baru setelah ubah schema
+npx prisma migrate dev --name nama_migrasi
+
+# Apply migrasi ke production
+npx prisma migrate deploy
+
+# Reset database (hati-hati: hapus semua data!)
+npx prisma migrate reset
+
+# Generate Prisma Client setelah ubah schema
+npx prisma generate
+
+# Buka GUI database
+npx prisma studio
+```
+
+### Contoh Schema
+
+```prisma
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      Role     @default(MAHASISWA)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  DOSEN
+  MAHASISWA
+}
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+# Unit test
+npm run test
+
+# E2E test
+npm run test:e2e
+
+# Coverage
+npm run test:cov
+```
+
+---
+
+## 📦 Scripts
+
+```bash
+npm run start         # Jalankan production
+npm run start:dev     # Jalankan dengan hot-reload
+npm run start:debug   # Jalankan dengan debugger
+npm run build         # Build ke dist/
+npm run lint          # Cek kode dengan ESLint
+npm run format        # Format kode dengan Prettier
+```
+
+---
+
+## 📄 Lisensi
+
+Didistribusikan di bawah lisensi **MIT**. Lihat `LICENSE` untuk informasi lebih lanjut.
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ using NestJS & Prisma</sub>
+</div>
